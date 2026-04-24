@@ -19,6 +19,7 @@ public class Main {
     private final GeradorDeGrafos gerador = new GeradorDeGrafos();
 
     public void executar() {
+        //Prints gerados por IA para a visualização no terminal ficar mais organizada
         System.out.println("=".repeat(80));
         System.out.println("  EXPERIMENTO: Pontes e Caminhos Eulerianos");
         System.out.println("  Algoritmos: Naive vs Tarjan (Fleury)");
@@ -26,7 +27,6 @@ public class Main {
 
         System.out.println("\n--- DEMONSTRACAO COM GRAFO PEQUENO ---\n");
         demonstrarGrafoPequeno();
-        //Prints gerados por IA para a visualização no terminal ficar mais organizada
         System.out.println("\n--- EXPERIMENTOS DE TEMPO (ms) ---\n");
         System.out.printf("%-12s %-15s %-20s %-20s%n",
                 "Vertices", "Tipo", "Naive (ms)", "Tarjan (ms)");
@@ -91,15 +91,11 @@ public class Main {
         for (String tipo : tipos) {
             Grafo g = gerarGrafo(tipo, V);
 
+            double tempoNaive  = medirFleury(g, AlgoritmoFleury.Estrategia.NAIVE);
             double tempoTarjan = medirFleury(g, AlgoritmoFleury.Estrategia.TARJAN);
-            double tempoNaive  = Double.NaN;
 
-            if (V <= 1_000) {
-                tempoNaive = medirFleury(g, AlgoritmoFleury.Estrategia.NAIVE);
-            }
-
-            String strNaive  = Double.isNaN(tempoNaive)  ? "N/A (lento)" : String.format("%.2f", tempoNaive);
-            String strTarjan = Double.isNaN(tempoTarjan) ? "N/A"         : String.format("%.2f", tempoTarjan);
+            String strNaive  = String.format("%.2f", tempoNaive);
+            String strTarjan = String.format("%.2f", tempoTarjan);
 
             System.out.printf("%-12d %-15s %-20s %-20s%n", V, tipo, strNaive, strTarjan);
         }
