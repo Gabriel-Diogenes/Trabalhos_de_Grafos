@@ -89,8 +89,15 @@ public class CaminhoMinimo {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("ESCOLHA O ARQUIVO:");
-        System.out.println("1 - grafo_denso.txt");
-        System.out.println("2 - grafo_esparso.txt");
+        System.out.println("1 - grafo_denso_5.txt");
+        System.out.println("2 - grafo_denso_10.txt");
+        System.out.println("3 - grafo_denso_15.txt");
+        System.out.println("4 - grafo_denso_20.txt");
+        System.out.println("5 - grafo_esparso_5.txt");
+        System.out.println("6 - grafo_esparso_10.txt");
+        System.out.println("7 - grafo_esparso_15.txt");
+        System.out.println("8 - grafo_esparso_20.txt");
+
 
         int opcao = scanner.nextInt();
 
@@ -99,11 +106,35 @@ public class CaminhoMinimo {
         switch (opcao) {
 
             case 1:
-                arquivo = "Implementacao3/grafo_denso.txt";
+                arquivo = "Implementacao3/grafo_denso_5.txt";
                 break;
 
             case 2:
-                arquivo = "Implementacao3/grafo_esparso.txt";
+                arquivo = "Implementacao3/grafo_denso_10.txt";
+                break;
+            
+            case 3:
+                arquivo = "Implementacao3/grafo_denso_15.txt";
+                break;
+
+            case 4:
+                arquivo = "Implementacao3/grafo_denso_20.txt";
+                break;
+
+            case 5:
+                arquivo = "Implementacao3/grafo_esparso_5.txt";
+                break;
+
+            case 6:
+                arquivo = "Implementacao3/grafo_esparso_10.txt";
+                break;
+            
+            case 7:
+                arquivo = "Implementacao3/grafo_esparso_15.txt";
+                break;
+            
+            case 8:
+                arquivo = "Implementacao3/grafo_esparso_20.txt";
                 break;
 
             default:
