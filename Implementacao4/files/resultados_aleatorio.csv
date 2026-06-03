@@ -1,0 +1,5 @@
+Instancia,Vertices,Arestas,Quantidade_Caminhos,Tempo_ms
+N=10,10,18,2,0.1531
+N=25,25,153,8,0.3288
+N=50,50,731,15,1.2897
+N=100,100,2922,28,2.9002
