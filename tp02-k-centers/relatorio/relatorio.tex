@@ -60,7 +60,7 @@ Conforme a especificação da OR-Library\footnote{\url{http://people.brunel.ac.u
   \item Aplicar o algoritmo de Floyd-Warshall para calcular os menores custos entre todos os pares de vértices.
 \end{enumerate}
 
-A classe \texttt{InstanceLoader} implementa essa preparação. O método \texttt{parsePmedFile} retorna o tamanho $n$, o parâmetro $k$ e a matriz de distâncias resultante.
+A classe \texttt{CarregadorInstancias} implementa essa preparação. O método \texttt{analisarArquivoPmed} retorna o tamanho $n$, o parâmetro $k$ e a matriz de distâncias resultante.
 
 \section{Algoritmo Exato}
 
@@ -96,7 +96,7 @@ Implementou-se a heurística gulosa de Gonzalez~\cite{gonzalez1985}, que garante
   \item Retornar os $k$ centros selecionados.
 \end{enumerate}
 
-A implementação encontra-se em \texttt{ApproximateKCenters.java}. O algoritmo executa em tempo $O(k \cdot n^2)$, dominado pelo cálculo repetido de distâncias mínimas aos centros atuais.
+A implementação encontra-se em \texttt{KCentrosAproximado.java}. O algoritmo executa em tempo $O(k \cdot n^2)$, dominado pelo cálculo repetido de distâncias mínimas aos centros atuais.
 
 \section{Experimentos}
 
@@ -109,7 +109,7 @@ Os experimentos foram executados em ambiente Windows com Java 17 e Maven. Para c
   \item Registrou-se o raio obtido, o tempo de execução e o \textit{gap} percentual do aproximado em relação ao raio ótimo de referência (Tabela 1 do enunciado).
 \end{itemize}
 
-A classe \texttt{Experiments} automatiza a coleta de resultados, gravando-os em \texttt{results/resultados.csv}.
+A classe \texttt{Experimentos} automatiza a coleta de resultados, gravando-os em \texttt{results/resultados.csv}.
 
 \subsection{Resultados: Qualidade das Soluções}
 
@@ -180,13 +180,14 @@ Para instâncias com $k$ proporcional a $n$ (como a instância 30 com $k=200$ e 
 tgc-cc-tp02-k-centers/
   pom.xml
   data/                  # Instancias pmed1..pmed40
-  src/main/java/br/puc/tgc/kcenters/
-    InstanceLoader.java      # Leitura e Floyd-Warshall
-    ExactKCenters.java       # Algoritmo exato (ILP com ojAlgo + busca binaria)
-    ApproximateKCenters.java # Algoritmo de Gonzalez
-    DownloadData.java        # Download das instancias
-    Experiments.java         # Execucao dos experimentos
-    GeneratePlots.java       # Geracao de graficos
+  src/main/java/br/puc/tgc/kcentros/
+    Main.java                # Ponto de entrada
+    CarregadorInstancias.java # Leitura e Floyd-Warshall
+    KCentrosExato.java       # Algoritmo exato (PLI com ojAlgo + busca binaria)
+    KCentrosAproximado.java  # Algoritmo de Gonzalez
+    BaixadorDados.java       # Download das instancias
+    Experimentos.java        # Execucao dos experimentos
+    GeradorGraficos.java     # Geracao de graficos
   results/
     resultados.csv       # Resultados tabulados
   relatorio/

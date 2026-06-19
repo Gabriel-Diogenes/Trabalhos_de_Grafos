@@ -20,7 +20,7 @@
         <dependency>
             <groupId>org.ojalgo</groupId>
             <artifactId>ojalgo</artifactId>
-            <version>53.4.0</version>
+            <version>54.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.jfree</groupId>
@@ -35,13 +35,16 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
+                <configuration>
+                    <release>17</release>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.5.0</version>
                 <configuration>
-                    <mainClass>br.puc.tgc.kcenters.Experiments</mainClass>
+                    <mainClass>br.puc.tgc.kcentros.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
